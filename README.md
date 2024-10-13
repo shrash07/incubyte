@@ -25,3 +25,14 @@ Both components are containerized using Docker for easy deployment and consisten
 ```bash
 git clone https://github.com/shrash07/incubyte.git
 cd incubyte
+```
+### Run the App
+
+```bash
+docker-compose up --build
+```
+### Teardown the App
+
+```bash
+docker-compose down
+```

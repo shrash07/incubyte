@@ -10,6 +10,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 app.use(cors());
+app.get('/health',(req,res)=>res?.send("Healthy"))
 app.use("/solve", solveRouter);
 
 app.listen(PORT, () => {

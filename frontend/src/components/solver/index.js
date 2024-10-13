@@ -5,6 +5,7 @@ export default function Solver() {
   const [value, setValue] = useState("");
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const handleChange = (e) => {
     setValue(e?.target.value);
@@ -12,11 +13,14 @@ export default function Solver() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(false);
     try {
       setLoading(true);
       const { data } = await validate(value);
       setAnswer(data?.answer);
     } catch (err) {
+      setError(true);
+      setAnswer(err?.response?.data);
       console.log(err);
     } finally {
       setLoading(false);
@@ -41,8 +45,11 @@ export default function Solver() {
         </button>
       </form>
       {!loading && (
-        <div className="text-white font-bold text-3xl mt-5">
-          Answer: <span className="text-green-500">{answer}</span>
+        <div className="text-white flex  gap-3 font-bold text-3xl mt-5 md:w-[30vw] w-[80vw]">
+          Answer:{" "}
+          <span className={`${error ? "text-red-500" : "text-green-500"}`}>
+            {answer}
+          </span>
         </div>
       )}
     </div>

@@ -1,0 +1,35 @@
+# Ignore node_modules
+node_modules
+
+# Ignore .env files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Ignore logs
+*.log
+
+# Ignore coverage reports
+coverage
+
+# Ignore test directories
+tests
+__tests__
+
+# Ignore any local IDE config files
+.vscode
+.idea
+*.swp
+*.swo
+.DS_Store
+
+# Ignore all other temporary files
+*.tmp
+*.bak
+*.orig
+
+# Ignore package-lock.json if you want to install dependencies from scratch
+# (optional, depends on your use case)
+# package-lock.json
